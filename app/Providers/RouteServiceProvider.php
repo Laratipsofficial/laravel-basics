@@ -58,8 +58,8 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60);
         });
 
-        RateLimiter::for('uploads', function ($request) {
-            return Limit::perMinute(3);
+        RateLimiter::for('only_four_visits', function (Request $request) {
+            return Limit::perMinute(4);
         });
     }
 }
