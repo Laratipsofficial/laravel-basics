@@ -6,5 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('about', [AboutUsController::class, 'index'])->name('about-us');
+Route::get('about', [AboutUsController::class, 'index'])
+    ->middleware('above_age:10')
+    ->name('about-us');
 
