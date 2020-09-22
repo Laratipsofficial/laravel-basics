@@ -9,9 +9,14 @@
 <body>
     <a href="{{ route('home') }}">Home</a>
     <a href="{{ route('about-us') }}">About Us</a>
+    <a href="{{ URL::temporarySignedRoute('secret', now()->addSeconds(5)) }}">Secret</a>
 
     <div>
       Home Page
+    </div>
+
+    <div>
+        {{ route('post.comment', ['post' => 'first-post', 'comment' => 'first-comment', 'helo' => 'world']) }}
     </div>
 </body>
 </html>
