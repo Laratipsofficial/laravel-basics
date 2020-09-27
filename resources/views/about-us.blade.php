@@ -12,7 +12,7 @@
     <a href="{{ route('contact-us') }}">Contact Us</a>
 
     <div>
-      Home Page
+        About Us Page
     </div>
 </body>
 </html>

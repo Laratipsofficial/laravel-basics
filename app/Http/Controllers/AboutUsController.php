@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
 {
-    public function index($slug)
+    public function index()
     {
-        return view('about.about-us');
+        return view('about-us');
     }
 }
