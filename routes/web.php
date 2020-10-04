@@ -8,3 +8,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('about-us', [AboutUsController::class, 'index'])->name('about-us');
 Route::get('contact-us', [ContactUsController::class, 'index'])->name('contact-us');
+Route::post('contact-us', [ContactUsController::class, 'store'])->name('contact-us.store');
