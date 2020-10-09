@@ -27,7 +27,9 @@ class ProductFactory extends Factory
         return [
             'title' => $title,
             'slug' => Str::slug($title),
-            'price' => random_int(200, 1500),
+            'price' => random_int(50, 1000),
+            'quantity' => random_int(0, 5),
+            'views' => random_int(1, 1000),
             'is_active' => $this->faker->boolean(60)
         ];
     }
