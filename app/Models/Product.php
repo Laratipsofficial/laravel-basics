@@ -12,10 +12,10 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $casts = [
-        'is_active' => 'boolean',
-        'price' => MoneyCast::class,
-    ];
+    // protected $casts = [
+    //     'is_active' => 'boolean',
+    //     'price' => MoneyCast::class,
+    // ];
 
     public function getTitleAttribute($value)
     {
