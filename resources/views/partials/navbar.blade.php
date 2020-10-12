@@ -4,6 +4,7 @@
             <a class="block px-8 py-4 text-white {{ session('activeNav') === 'home' ? 'bg-purple-800' : null }}" href="{{ route('home') }}">Home</a>
             <a class="block px-8 py-4 text-white {{ session('activeNav') === 'about' ? 'bg-purple-800' : null }}" href="{{ route('about-us') }}">About Us</a>
             <a class="block px-8 py-4 text-white {{ session('activeNav') === 'contact' ? 'bg-purple-800' : null }}" href="{{ route('contact-us') }}">Contact Us</a>
+            <a class="block px-8 py-4 text-white {{ session('activeNav') === 'signup' ? 'bg-purple-800' : null }}" href="{{ route('signup.form') }}">Signup</a>
         </div>
     </div>
 </div>
