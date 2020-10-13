@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -12,6 +13,7 @@ class HomeController extends Controller
 
         $data = [
             'title' => 'Home Page',
+            'users' => User::get()->load(['profile']),
         ];
 
         return view('welcome', $data);
