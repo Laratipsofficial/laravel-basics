@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Product;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -13,7 +13,9 @@ class HomeController extends Controller
 
         $data = [
             'title' => 'Home Page',
-            'users' => User::get()->load(['profile']),
+            'products' => Product::get()->load(['comments' => function ($query) {
+                $query->where('is_active', 1);
+            }]),
         ];
 
         return view('welcome', $data);

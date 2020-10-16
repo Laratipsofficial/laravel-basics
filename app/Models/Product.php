@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-use App\Casts\MoneyCast;
-use App\Scopes\ActiveScope;
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
@@ -35,5 +33,10 @@ class Product extends Model
     protected static function booted()
     {
         // static::addGlobalScope(new ActiveScope);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
