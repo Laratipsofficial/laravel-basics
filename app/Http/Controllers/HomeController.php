@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -13,8 +14,8 @@ class HomeController extends Controller
 
         $data = [
             'title' => 'Home Page',
-            'products' => Product::get()->load(['comments' => function ($query) {
-                $query->where('is_active', 1);
+            'users' => User::get()->load(['roles' => function ($query) {
+                $query->wherePivot('expires_at', '>', now());
             }]),
         ];
 

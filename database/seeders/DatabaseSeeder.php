@@ -17,6 +17,6 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        Product::factory()->count(10)->has(Comment::factory()->count(random_int(2, 3)))->create();
+        // Product::factory()->count(10)->has(Comment::factory()->count(random_int(2, 3)))->create();
     }
 }

@@ -45,4 +45,11 @@ class User extends Authenticatable
             'country' => 'England',
         ]);
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class)
+            ->withPivot(['expires_at'])
+            ->withTimestamps();
+    }
 }
