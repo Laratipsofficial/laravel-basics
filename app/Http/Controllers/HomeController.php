@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use App\Models\User;
+use App\Models\Mechanic;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -14,9 +13,9 @@ class HomeController extends Controller
 
         $data = [
             'title' => 'Home Page',
-            'users' => User::get()->load(['roles' => function ($query) {
-                $query->wherePivot('expires_at', '>', now());
-            }]),
+            'mechanics' => Mechanic::whereDoesntHave('owner', function ($query) {
+                $query->whereNotNull('phone');
+            })->get()->load(['owner']),
         ];
 
         return view('welcome', $data);
