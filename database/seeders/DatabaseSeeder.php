@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Comment;
-use App\Models\Product;
+use App\Models\Country;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +19,18 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         // Product::factory()->count(10)->has(Comment::factory()->count(random_int(2, 3)))->create();
+
+        // Country::factory()->count(3)->create()
+        //     ->each(function ($c) {
+        //         User::factory()->count(3)->create([
+        //             'country_id' => $c->id,
+        //         ]);
+        //     });
+
+        // User::get()->each(function ($user) {
+        //     Post::factory()->count(2)->create([
+        //         'user_id' => $user->id,
+        //     ]);
+        // });
     }
 }

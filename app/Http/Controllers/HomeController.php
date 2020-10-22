@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\Mechanic;
 use Illuminate\Support\Facades\Session;
 
@@ -13,9 +14,7 @@ class HomeController extends Controller
 
         $data = [
             'title' => 'Home Page',
-            'mechanics' => Mechanic::whereDoesntHave('owner', function ($query) {
-                $query->whereNotNull('phone');
-            })->get()->load(['owner']),
+            'countries' => Country::withCount(['posts'])->orderBy('posts_count')->get(),
         ];
 
         return view('welcome', $data);

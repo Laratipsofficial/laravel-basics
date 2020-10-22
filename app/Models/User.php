@@ -52,4 +52,9 @@ class User extends Authenticatable
             ->withPivot(['expires_at'])
             ->withTimestamps();
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
