@@ -24,7 +24,6 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'country_id' => Country::factory(),
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),

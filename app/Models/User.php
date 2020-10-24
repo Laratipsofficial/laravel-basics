@@ -57,4 +57,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function scopeWithLastLogin($query)
+    {
+        return $query->addSelect([
+            'last_logged_in_id' => Login::select('id')
+                ->whereColumn('user_id', 'users.id')
+                ->orderBy('logged_in_at', 'desc')
+                ->limit(1),
+        ])->with(['lastLogin']);
+    }
+
+    public function lastLogin()
+    {
+        return $this->belongsTo(Login::class, 'last_logged_in_id');
+    }
 }

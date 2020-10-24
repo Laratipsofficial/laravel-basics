@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
-use App\Models\Mechanic;
-use App\Models\Post;
-use App\Models\Product;
+use App\Models\Login;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -16,9 +14,7 @@ class HomeController extends Controller
 
         $data = [
             'title' => 'Home Page',
-            'product' => Post::with(['comments' => function ($query) {
-                $query->where('is_active', 1);
-            }])->find(1),
+            'users' => User::withLastLogin()->get(),
         ];
 
         return view('welcome', $data);
