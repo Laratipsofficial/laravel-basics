@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use App\Models\Mechanic;
+use App\Models\Post;
+use App\Models\Product;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -14,7 +16,9 @@ class HomeController extends Controller
 
         $data = [
             'title' => 'Home Page',
-            'countries' => Country::withCount(['posts'])->orderBy('posts_count')->get(),
+            'product' => Post::with(['comments' => function ($query) {
+                $query->where('is_active', 1);
+            }])->find(1),
         ];
 
         return view('welcome', $data);

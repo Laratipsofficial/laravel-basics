@@ -25,9 +25,10 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'product_id' => Product::factory(),
+            'commentable_id' => '',
+            'commentable_type' => '',
             'user_id' => User::factory(),
-            'body' => $this->faker->paragraphs(3, true),
+            'body' => $this->faker->paragraph,
             'is_active' => $this->faker->boolean(90),
         ];
     }

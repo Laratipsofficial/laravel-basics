@@ -22,8 +22,12 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->sentence;
+
         return [
-            'title' => $this->faker->sentence,
+            'title' => $title,
+            'slug' => Str::slug($title),
+            'is_active' => $this->faker->boolean(60),
         ];
     }
 }
