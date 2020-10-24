@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Login;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
 
@@ -16,6 +17,8 @@ class HomeController extends Controller
             'title' => 'Home Page',
             'users' => User::withLastLogin()->get(),
         ];
+
+        Product::query();
 
         return view('welcome', $data);
     }
