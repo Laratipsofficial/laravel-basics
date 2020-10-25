@@ -14,5 +14,7 @@
     <div class="container mx-auto">
         @yield('content')
     </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
 </body>
 </html>

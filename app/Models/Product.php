@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Builders\ProductBuilder;
+use App\Collections\ProductCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -17,14 +18,14 @@ class Product extends Model
     // ];
 
     /**
-     * Create a new Eloquent query builder for the model.
+     * Create a new Eloquent Collection instance.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder|static
+     * @param  array  $models
+     * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function newEloquentBuilder($query)
+    public function newCollection(array $models = [])
     {
-        return new ProductBuilder($query);
+        return new ProductCollection($models);
     }
 
     public function getTitleAttribute($value)

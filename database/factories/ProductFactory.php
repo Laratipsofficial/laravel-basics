@@ -31,6 +31,7 @@ class ProductFactory extends Factory
             'quantity' => random_int(0, 5),
             'views' => random_int(1, 1000),
             'is_active' => $this->faker->boolean(90),
+            'status' => $this->faker->randomElement(['Draft', 'Published' , 'Scheduled']),
         ];
     }
 }

@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->unsignedInteger('quantity');
             $table->unsignedInteger('views');
             $table->boolean('is_active');
+            $table->string('status');
             $table->timestamps();
         });
     }

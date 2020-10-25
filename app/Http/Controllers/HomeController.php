@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Login;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -13,12 +11,14 @@ class HomeController extends Controller
     {
         Session::put('activeNav', 'home');
 
+        $products = Product::get()->published();
+
         $data = [
             'title' => 'Home Page',
-            'users' => User::withLastLogin()->get(),
+            'draftProducts' => $products->drafts(),
+            'publishedProducts' => $products->published(),
+            'scheduledProducts' => $products->scheduled(),
         ];
-
-        Product::query();
 
         return view('welcome', $data);
     }
